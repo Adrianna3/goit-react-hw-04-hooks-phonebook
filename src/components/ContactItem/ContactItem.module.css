@@ -1,0 +1,14 @@
+.contactItem__btn {
+   margin-left: 10px;
+  cursor: pointer;
+  background-color: transparent; 
+  border: 2px solid rgb(221, 212, 212);
+  color: red;
+ 
+}
+
+.btcontactItem__btnn:hover {
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+}

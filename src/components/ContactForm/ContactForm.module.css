@@ -1,0 +1,39 @@
+.contactForm__form {
+  display: block;
+  max-width: 420px;
+  margin: 5px;
+  padding: 20px 15px;
+  border: 1px solid black;
+}
+
+.contactForm__label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.contactForm__input {
+  display: block;
+  width: 280px;
+  height: 30px;
+  margin-top: 5px;
+  border: 2px solid rgb(221, 212, 212);
+  padding-left: 5px;
+  outline: none;
+}
+
+.contactForm__input:focus {
+  border: 2px solid rgb(47, 223, 243);
+}
+
+.contactForm__btn { 
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: transparent; 
+  border: 2px solid rgb(221, 212, 212);
+}
+
+.addBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 3px rgb(97, 92, 92);
+  background-color: rgb(146, 146, 214);
+}
