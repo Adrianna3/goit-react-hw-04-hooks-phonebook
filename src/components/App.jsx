@@ -33,7 +33,7 @@ export const App = () => {
     setFilter(() => e.target.value.toLowerCase());
   };
 
-  const viewContacts = () => {
+  const filteredContacts = () => {
     return contacts.filter(cont => cont.name.toLowerCase().includes(filter));
   };
 
@@ -49,7 +49,10 @@ export const App = () => {
 
       <Section title="Contacts">
         <SearchFilter findByName={findByName} />
-        <ContactsList contacts={viewContacts()} deleteItem={deleteContact} />
+        <ContactsList
+          contacts={filteredContacts()}
+          deleteItem={deleteContact}
+        />
       </Section>
     </div>
   );
