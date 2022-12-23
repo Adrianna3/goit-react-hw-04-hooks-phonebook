@@ -5,14 +5,14 @@ import { nanoid } from 'nanoid';
 import { SearchFilter } from './SearchFilter/SearchFilter';
 import { Section } from './Section/Section';
 
-  export const App = () => {
+export const App = () => {
   const initiateContacts = () =>
     JSON.parse(localStorage.getItem('LOCALSTORAGE_KEY')) || [];
 
   const [contacts, setContacts] = useState(initiateContacts);
   const [filter, setFilter] = useState('');
 
-useEffect(() => {
+  useEffect(() => {
     try {
       const initiateContacts = JSON.stringify(contacts);
       localStorage.setItem('LOCALSTORAGE_KEY', initiateContacts);
@@ -25,34 +25,32 @@ useEffect(() => {
     if (contacts.find(cont => cont.name === name)) {
       alert(`${name} is already in contacts`);
     } else {
-       setContacts(oldCont => [...oldCont, { name, number, id: nanoid() }]);
-      }
+      setContacts(oldCont => [...oldCont, { name, number, id: nanoid() }]);
+    }
   };
 
- const findByName = e => {
+  const findByName = e => {
     setFilter(() => e.target.value.toLowerCase());
   };
 
-const  viewContacts = () => {
+  const viewContacts = () => {
     return contacts.filter(cont => cont.name.toLowerCase().includes(filter));
   };
 
-const  deleteContact = id => {
-     setContacts(() => contacts.filter(cont => cont.id !== id));
+  const deleteContact = id => {
+    setContacts(() => contacts.filter(cont => cont.id !== id));
   };
 
-  
-    return (
-      <div>
-        <Section title="Phonebook">
-          <ContactForm newContact={addContact} />
-        </Section>
+  return (
+    <div>
+      <Section title="Phonebook">
+        <ContactForm newContact={addContact} />
+      </Section>
 
-        <Section title="Contacts">
-          <SearchFilter findByName={findByName} />
-          <ContactsList contacts={viewContacts()} deleteItem={deleteContact} />
-        </Section>
-      </div>
-    );
-  }
-
+      <Section title="Contacts">
+        <SearchFilter findByName={findByName} />
+        <ContactsList contacts={viewContacts()} deleteItem={deleteContact} />
+      </Section>
+    </div>
+  );
+};
